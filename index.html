@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/taskManager.js" defer></script>
+    <script type="module" src="js/weatherWidget.js" defer></script>
+    <script src="js/noteManager.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>My Dashboard</h1>
+        <button id="theme-toggle">🌓</button>
+    </header>
+    
+    <main class="dashboard">
+        <section class="widget" id="tasks-widget">
+            <h2>Tasks</h2>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="New Task">
+                <button type="submit">Add</button>
+            </form>
+            <ul id="task-list"></ul>
+        </section>
+        
+        <section class="widget" id="weather-widget">
+            <h2>Weather</h2>
+            <div id="weather-content">
+                Loading...
+            </div>
+        </section>
+        
+        <section class="widget" id="notes-widget">
+            <h2>Quick Notes</h2>
+            <textarea id="quick-note"></textarea>
+        </section>
+    </main>
+
+    <footer>
+        <p>Personal Dashboard</p>
+    </footer>
+</body>
+</html>
