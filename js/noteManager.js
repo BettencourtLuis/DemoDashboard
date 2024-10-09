@@ -1,3 +1,5 @@
+import { debounce } from '../utils/debounce.js';
+
 class NoteManager {
     constructor() {
         this.noteTextarea = document.getElementById('quick-note');
@@ -7,9 +9,11 @@ class NoteManager {
 
     setupEventListeners() {
         this.noteTextarea.addEventListener('input', () => {
-            this.saveNote();
+            this.debouncedSaveNote();
         });
     }
+
+    debouncedSaveNote = debounce(this.saveNote, 500);
 
     saveNote() {
         localStorage.setItem('quickNote', this.noteTextarea.value);
