@@ -57,6 +57,17 @@ class TaskManager {
         this.taskList.innerHTML = '';
         const categories = this.getCategories();
         
+        const stats = this.getTaskStatistics();
+        const statsElement = document.createElement('div');
+        statsElement.className = 'task-statistics';
+        statsElement.innerHTML = `
+            <h3>Task Statistics</h3>
+            <p>Total Tasks: ${stats.totalTasks}</p>
+            <p>Completed Tasks: ${stats.completedTasks}</p>
+            <p>Completion Rate: ${stats.completionRate}%</p>
+        `;
+        this.taskList.appendChild(statsElement);
+        
         categories.forEach(category => {
             const categoryTasks = this.tasks.filter(task => task.category === category);
             if (categoryTasks.length > 0) {
@@ -89,6 +100,18 @@ class TaskManager {
     getCategories() {
         const categories = new Set(this.tasks.map(task => task.category));
         return Array.from(categories);
+    }
+
+    getTaskStatistics() {
+        const totalTasks = this.tasks.length;
+        const completedTasks = this.tasks.filter(task => task.completed).length;
+        const completionRate = totalTasks > 0 ? (completedTasks / totalTasks * 100).toFixed(2) : 0;
+
+        return {
+            totalTasks,
+            completedTasks,
+            completionRate
+        };
     }
 }
 
