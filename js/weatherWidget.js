@@ -1,4 +1,5 @@
 import { CONFIG } from './config.js';
+import { hideSkeletonLoader } from '../utils/hideSkeletonLoader.js';
 
 class WeatherWidget {
     constructor() {
@@ -27,6 +28,7 @@ class WeatherWidget {
                 <img src="${condition.icon}" alt="${condition.text}">
             </div>
         `;
+        hideSkeletonLoader('weather-widget');
     }
 }
 

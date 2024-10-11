@@ -1,4 +1,5 @@
 import { debounce } from '../utils/debounce.js';
+import { hideSkeletonLoader } from '../utils/hideSkeletonLoader.js';
 
 class NoteManager {
     constructor() {
@@ -60,6 +61,7 @@ class NoteManager {
             deleteBtn.addEventListener('click', () => this.deleteNote(note.id));
             this.notesContainer.appendChild(noteElement);
         });
+        hideSkeletonLoader('notes-widget');
     }
 }
 

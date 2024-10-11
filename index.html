@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/taskManager.js" defer></script>
+    <script type="module" src="js/taskManager.js" defer></script>
     <script type="module" src="js/weatherWidget.js" defer></script>
     <script type="module" src="js/noteManager.js" defer></script>
     <script src="js/app.js" defer></script>
@@ -20,11 +21,19 @@
         <section class="widget" id="tasks-widget">
             <h2>Tasks</h2>
             <form id="task-form">
-                <input type="text" id="task-input" placeholder="New Task">
-                <input type="text" id="category-input" placeholder="Category">
-                <button type="submit">Add</button>
+                <input id="task-input" type="text" placeholder="Enter a new task" aria-label="New task input">
+                <input id="category-input" type="text" placeholder="Enter category" aria-label="Task category input">
+                <button type="submit" aria-label="Add task" data-tooltip="Click to add a new task">Add Task</button>
             </form>
+            <div id="task-progress" class="progress-bar">
+                <div class="progress"></div>
+            </div>
             <ul id="task-list"></ul>
+            <div class="skeleton-loader">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+            </div>
         </section>
         
         <section class="widget" id="weather-widget">
@@ -32,17 +41,23 @@
             <div id="weather-content">
                 Loading...
             </div>
+            <div class="skeleton-loader">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+            </div>
         </section>
         
         <section class="widget" id="notes-widget">
             <h2>Quick Notes</h2>
             <button id="add-note-btn">Add Note</button>
             <div id="notes-container"></div>
+            <div class="skeleton-loader">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+            </div>
         </section>
     </main>
-
-    <footer>
-        <p>Personal Dashboard</p>
-    </footer>
 </body>
 </html>
